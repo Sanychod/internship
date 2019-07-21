@@ -9,9 +9,9 @@
     <!--  JavaScript here -->
     <!--<script src="js/app.js"></script>-->
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
-    <script src="js/script.js"></script>
+    
+   <!--  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script> -->
+   <!--  <script src="<?php echo get_template_directory_uri(); ?>/dist/js/script.js"></script> -->
     <?php wp_footer(); ?>
 
 </body>
