@@ -3,10 +3,6 @@ jQuery(document).ready(function($) {
   const overlay = $(".dark-overlay");
   const menu = $(".mobile-menu");
   const links = menu.find(".has-submenu a");
-  console.log(menuButton);
-  console.log(overlay);
-  console.log(menu);
-  console.log(links);
 
   links.on("click", function() {
     const $this = $(this);
@@ -87,7 +83,7 @@ jQuery(document).ready(function($) {
     speed: 1000
   });
 
-  const f = document.querySelector(".myForm");
+  /* const f = document.querySelector(".myForm");
   const els = f.elements;
 
   const pre = document.querySelector(".preorder");
@@ -124,7 +120,7 @@ jQuery(document).ready(function($) {
         }
       }
     });
-  }
+  } */
 
   function initMobile() {
     console.log("is-mobile");
@@ -146,7 +142,7 @@ jQuery(document).ready(function($) {
     console.log("is-desktop");
   }
 
-  ssm.addStates([
+  /* ssm.addStates([
     {
       id: "mobile",
       query: "(max-width: 640px)",
@@ -168,5 +164,5 @@ jQuery(document).ready(function($) {
         initDesktop();
       }
     }
-  ]);
+  ]); */
 });
