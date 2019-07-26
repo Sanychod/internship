@@ -22,8 +22,8 @@
         <?php endif; ?>
     </div>  
     <div class="footer__text">
-            <p>&copy;copyright | V-travel 2019. all right Reserved</p>
-        </div>
+        <p><?php the_field('footer'); ?></p>
+    </div>
     </div>
 </footer>
 

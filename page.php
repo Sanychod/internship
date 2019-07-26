@@ -207,19 +207,7 @@ if( $images ): ?>
     </div>
 </section>
 <!-- ===========TEAM ===================================================================================-->
-<section id="download" class="call" >
-    <div class="container">
-        <div class="call-content">
-            <h2 class="call-content__title">are you still intarested to tour?</h2>
-            <p class="call-content__text">We offer a wide range of procedures to help you get the perfect smile</p>
-            <div class="call-content__ord">
-                <a class="btn" href="#myModal" role="button" data-toggle="modal">book a tour!</a>
-            </div>
-        </div>
-          
-    </div>    
-</section> 
-<!-- ===========CALL ===================================================================================-->
+
 
 <section id="contact" class="contact" >
     <div class="container">
@@ -235,9 +223,9 @@ if( $images ): ?>
                     <h2 class="box-item__up">our office:</h2>
                     <?php 
                         $office = get_field('office_link');
-                    
+                                      
                         if( $office ): ?>
-                            <a class="box-item__down" target="<?php echo $office['target']; ?>" href="<?php echo $office['url']; ?>"><?php echo 'Jurain, Dhaka Bangladesh'; ?></a>
+                            <a class="box-item__down" target="<?php echo $office['target']; ?>" href="<?php echo $office['url']; ?>"><?php echo $office['title']; ?></a>
                         <?php endif; ?>
                    
             </div>
