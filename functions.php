@@ -18,4 +18,25 @@ function my_scripts_method(){
 
 
 
+
+function my_login_logo() { ?>
+    <style type="text/css">
+    .login form, .login #login_error, .login .message, .login .success {
+    border-radius: 15px;
+    }
+    body.login div#login h1 a {
+    background-image: url(<?php echo get_bloginfo('template_directory'); ?>/dist/i/logo.png);
+    background-size: auto;
+    width: auto;}
+    body {
+    background: url(<?php echo get_bloginfo('template_directory'); ?>/dist/i/mainbg.jpg) no-repeat !important;
+    background-size:cover !important;
+    }
+    .login #backtoblog a, .login #nav a {
+    padding: 2px;
+    border-radius: 5px;
+    background-color: snow;
+    }</style>
+    <?php }
+    add_action( 'login_enqueue_scripts', 'my_login_logo' );
 ?>
