@@ -7,10 +7,10 @@ Template Name: Search Page
 get_header(); ?>
 
 </header>
-<section id="About" class="main">
+<section id="About" class="main" style="background: #e1e1e1">
         <div class="container">
 
-			<?php get_search_form(); ?>
+			<p  ><?php get_search_form(); ?></p>
 
 </div>
 	
