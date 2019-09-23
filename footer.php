@@ -1,26 +1,33 @@
 <footer class="footer">
     <div class="container">
-    <nav class="nav-footer">
-            <?php
-            if (has_nav_menu('footer_menu')) :
-                wp_nav_menu([
-                    'theme_location' => 'footer_menu',
-                    'menu_id' => 'footer-menu',
-                    'walker' => new nahl_navwalker()]);
-            endif;
-            ?>
-        </nav>
-        <?php if( have_rows('footer_socials', 'options') ):?>
-                <div class="footer__socials">
-                    <?php while (have_rows('footer_socials', 'options')) : the_row(); ?>
-                        <?php $social_icon = get_sub_field('social_icon')?>
-                        <a target="_blank" href="<?php echo get_sub_field('social_link')?>">
-                            <img src="<?php echo $social_icon['url']?>" alt="<?php echo $social_icon['alt']?>">
-                        </a>
-                    <?php endwhile; ?>
-                </div>
-        <?php endif; ?>
-    </div>  
+    <?php $blog_info = get_bloginfo( 'name' ); ?>
+			<?php if ( ! empty( $blog_info ) ) : ?>
+				<a class="site-name" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" style='color:white'><?php bloginfo( 'name' ); ?></a>,
+			<?php endif; ?>
+			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'examtheme' ) ); ?>" style='color:white'>
+				<?php
+				/* translators: %s: WordPress. */
+				printf( __( 'Proudly powered by %s.', 'examtheme' ), 'WordPress' );
+				?>
+			</a>
+			<?php
+			if ( function_exists( 'the_privacy_policy_link' ) ) {
+				the_privacy_policy_link( '', '<span role="separator" aria-hidden="true"></span>' );
+			}
+			?>
+			<?php if ( has_nav_menu( 'footer' ) ) : ?>
+				<nav class="footer-navigation" aria-label="<?php esc_attr_e( 'Footer Menu', 'examtheme' ); ?>">
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'footer',
+							'menu_class'     => 'footer-menu',
+							'depth'          => 1,
+						)
+					);
+					?>
+				</nav><!-- .footer-navigation -->
+			<?php endif; ?>
     <div class="footer__text">
         <p><?php the_field('footer'); ?></p>
     </div>

@@ -5,8 +5,7 @@
             <div class="header-content__order">
             <?php 
 
-            $link = get_field('header_button');
-            if( $link ): 
+            if( $link = get_field('header_button') ): 
                 $link_url = $link['#myModal'];
                 $link_title = $link['Book a tour'];
                 $link_target = $link['target'] ? $link['target'] : '_self';
@@ -60,23 +59,23 @@
             <h2><?php the_field('places_title'); ?></h2>
         </div>
             <div class="arrows"></div>
-        <div class="tour-list">
-        <?php if( have_rows('places_slider') ): ?>
-        <?php while( have_rows('places_slider') ): the_row(); ?>
-           <?php
-            $slideimage = get_sub_field('image');
-            $slidetitle = get_sub_field('slider_title');
-            $slidelocation = get_sub_field('slider_location');
-            $slideprice = get_sub_field('slider_price');
-            $slidediscount = get_sub_field('slider_discount');
-            ?>
-            <div class="single-place">
-            <img class="img-fluid single-place__img " src="<?php echo $slideimage['url']; ?>" >
-                    <div class="single-place__content">
-                        <h2 class="single-place__title"><?php echo $slidetitle; ?></h2>
-                        <h3 class="single-place__city"><?php echo $slidelocation; ?></h3>
-                        <h4 class="single-place__price"><?php echo $slideprice; ?><span class="single-place__discount"><?php echo $slidediscount; ?></span></h4>
-                    </div>
+                <div class="tour-list">
+                <?php if( have_rows('places_slider') ): ?>
+                <?php while( have_rows('places_slider') ): the_row(); ?>
+                <?php
+                    $slideimage = get_sub_field('image');
+                    $slidetitle = get_sub_field('slider_title');
+                    $slidelocation = get_sub_field('slider_location');
+                    $slideprice = get_sub_field('slider_price');
+                    $slidediscount = get_sub_field('slider_discount');
+                    ?>
+                    <div class="single-place">
+                    <img class="img-fluid single-place__img " src="<?php echo $slideimage['url']; ?>" >
+                            <div class="single-place__content">
+                                <h2 class="single-place__title"><?php echo $slidetitle; ?></h2>
+                                <h3 class="single-place__city"><?php echo $slidelocation; ?></h3>
+                                <h4 class="single-place__price"><?php echo $slideprice; ?><span class="single-place__discount"><?php echo $slidediscount; ?></span></h4>
+                            </div>
               
             </div>
         <?php endwhile; ?>
@@ -91,25 +90,23 @@
 <section id="service" class="services">
     <div class="container">
         <div class="services__item">
-        <?php if( have_rows('service_item') ): ?>
-        <?php while( have_rows('service_item') ): the_row(); ?>
-           <?php
-            $serviceimage = get_sub_field('services_image');
-            $serviceslogan = get_sub_field('services_slogan');
-            $servicetext = get_sub_field('serices_text');
-            
-            ?>
-            <div class="single-service">
-                <div class="single-service__icon">
-                    <img class="single-service__svg-icon"  src="<?php echo $serviceimage['url']; ?>'; ?>" >
-                </div>
-                    <h4 class="single-service__title"><?php echo $serviceslogan; ?></h4>
-                    <p  class="single-service__text"><?php echo $servicetext; ?></p>
-              
-            </div>
-        <?php endwhile; ?>
-    <?php endif; ?>
-
+                <?php if( have_rows('service_item') ): ?>
+                <?php while( have_rows('service_item') ): the_row(); ?>
+                <?php
+                    $serviceimage = get_sub_field('services_image');
+                    $serviceslogan = get_sub_field('services_slogan');
+                    $servicetext = get_sub_field('serices_text');
+                    
+                    ?>
+                    <div class="single-service">
+                        <div class="single-service__icon">
+                            <img class="single-service__svg-icon"  src="<?php echo $serviceimage['url']; ?>'; ?>" >
+                        </div>
+                            <h4 class="single-service__title"><?php echo $serviceslogan; ?></h4>
+                            <p  class="single-service__text"><?php echo $servicetext; ?></p>              
+                    </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
         </div>
     </div>
 </section>
@@ -120,26 +117,21 @@
         <h2 class="gallery__title"><?php the_field('gallery_title'); ?></h2>
             <div class="content">
             <?php 
-
-$images = get_field('gallery_photo');
-
-if( $images ): ?>
-  
-        <?php foreach( $images as $image ): ?>
-           <figure class="content-item">
-                <a href="<?php echo $image['url']; ?>" class="content-item__link" data-fancybox="images" data-caption="Tour gallery">
-                     <img  class="img-fluid content-item__img"  src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>" />
-                </a>
-                <figcaption class="caption">
-                <h3 class="caption__text"><?php echo $image['caption']; ?></h3>
-                </figcaption> 
-                </figure>         
-        <?php endforeach; ?>
-    
-<?php endif; ?>
-
-              
-            </div>
+                $images = get_field('gallery_photo');
+                if( $images ): ?>  
+                        <?php foreach( $images as $image ): ?>
+                        <figure class="content-item">
+                                <a href="<?php echo $image['url']; ?>" class="content-item__link" data-fancybox="images" data-caption="Tour gallery">
+                                    <img  class="img-fluid content-item__img"  src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>" />
+                                </a>
+                                <figcaption class="caption">
+                                <h3 class="caption__text"><?php echo $image['caption']; ?></h3>
+                                </figcaption> 
+                                </figure>         
+                        <?php endforeach; ?>
+                    
+                <?php endif; ?>
+        </div>
     </div>
 </section>
 <!-- ===========GALLERY ===================================================================================-->
@@ -226,8 +218,7 @@ if( $images ): ?>
                                       
                         if( $office ): ?>
                             <a class="box-item__down" target="<?php echo $office['target']; ?>" href="<?php echo $office['url']; ?>"><?php echo $office['title']; ?></a>
-                        <?php endif; ?>
-                   
+                        <?php endif; ?>                   
             </div>
             
             <div class="box-item" >
@@ -256,8 +247,7 @@ if( $images ): ?>
                         $maillink = get_field('mail_link');
                         if( $maillink ): ?>
                             <a class="box-item__down" target="<?php echo $maillink['maillink']?>"; href="<?php echo $maillink['url']; ?>"><?php echo $maillink['title']; ?></a>
-                        <?php endif; ?>
-            
+                        <?php endif; ?>            
             </div>
         </div>
         <div id="myModal" class="form" tabindex="-1" >
